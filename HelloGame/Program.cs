@@ -1,3 +1,3 @@
 ﻿
-using var game = new HelloGame.Game1();
+using var game = new HelloGame.HelloGame();
 game.Run();

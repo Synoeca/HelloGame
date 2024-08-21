@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace HelloGame
 {
-	public class Game1 : Game
+	public class HelloGame : Game
 	{
 		private GraphicsDeviceManager _graphics;
 		private SpriteBatch _spriteBatch;
@@ -12,7 +12,7 @@ namespace HelloGame
 		private Vector2 _ballPosition;
 		private Vector2 _ballVelocity;
 
-		public Game1()
+		public HelloGame()
 		{
 			_graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
