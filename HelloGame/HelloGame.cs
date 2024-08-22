@@ -28,7 +28,7 @@ namespace HelloGame
 			_ballVelocity = new Vector2((float)rand.NextDouble(), (float)rand.NextDouble());
 			_ballVelocity.Normalize();
 
-			_ballVelocity *= 100;
+			_ballVelocity *= 300;
 
 			base.Initialize();
 		}
@@ -47,6 +47,9 @@ namespace HelloGame
 				Exit();
 
 			// TODO: Add your update logic here
+
+			_ballVelocity.Y += 500f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
 			_ballPosition += _ballVelocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
 			if (_ballPosition.X < _graphics.GraphicsDevice.Viewport.X || _ballPosition.X > _graphics.GraphicsDevice.Viewport.Width - 64)
@@ -56,6 +59,15 @@ namespace HelloGame
 			if (_ballPosition.Y < _graphics.GraphicsDevice.Viewport.Y || _ballPosition.Y > _graphics.GraphicsDevice.Viewport.Height - 64)
 			{
 				_ballVelocity.Y *= -1;
+
+				if (_ballPosition.Y > _graphics.GraphicsDevice.Viewport.Height - 64)
+				{
+					_ballPosition.Y = _graphics.GraphicsDevice.Viewport.Height - 64;
+				}
+				else if (_ballPosition.Y < _graphics.GraphicsDevice.Viewport.Y)
+				{
+					_ballPosition.Y = _graphics.GraphicsDevice.Viewport.Y;
+				}
 			}
 
 			base.Update(gameTime);
